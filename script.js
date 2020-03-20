@@ -4,7 +4,6 @@ function init() {
     let apiKey = 'ydvNHGQto4tLcOSZ4aWQ21b9AxTpwOpm'
 
 
-
     /**
      * 
      * @param {string} searchString 
@@ -27,6 +26,11 @@ function init() {
             }) // #user-error
     }
 
+    /**
+     * 
+     * @param {object} data 
+     * Builds then updates DOM with the built card elements
+     */
     function buildArticleUI(data) {
         let cardEl = $('<article>')
         // loop through {data} and build a card for each article
