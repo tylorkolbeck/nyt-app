@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
   <meta charset="UTF-8">
@@ -14,42 +14,45 @@
   <title>New York Times Search</title>
 </head>
 
-<body>
-  <div class="container">
-    <header class="bg-info py-5 mb-3 text-center rounded">
-      <h1 class="text-light"><span class="fa fa-newspaper-o"></span> New York Times Search</h1>
-      <p id="error" class="text-danger mt-3"></p>
-    </header>
+<body class="container d-flex flex-column h-100">
+  <header class="bg-info py-5 mb-3 text-center rounded">
+    <h1 class="text-light"><span class="fa fa-newspaper-o"></span> New York Times Search</h1>
+  </header>
 
-    <main>
-      <div class="card mb-3">
-        <div class="card-header"><span class="fa fa-list-alt"></span> Search Parameters</div>
-        <div class="card-body">
-          <form>
-            <div class="form-group">
-              <label for="searchTerm">Search Term:</label>
-              <input type="text" class="form-control" id="searchTerm">
-            </div>
-            <div class="form-group">
-              <label for="numberRecords">Number of Records to Retrive:</label>
-              <input type="number" class="form-control" id="numberRecords" value="5">
-            </div>
-            <div class="form-group">
-              <label for="startYear">Start Year (Optional):</label>
-              <input type="number" class="form-control" id="startYear">
-            </div>
-            <div class="form-group">
-              <label for="endYear">End Year (Optional):</label>
-              <input type="number" class="form-control" id="endYear">
-            </div>
-            <button id="search-form" type="submit" class="btn btn-light"><span class="fa fa-search"></span> Search</button>
-            <button id="clear-results" type="button" class="btn btn-light"><span class="fa fa-trash"></span> Clear Results</button>
-          </form>
-        </div>
+  <main class="flex-shrink-0">
+    <div class="card mb-3">
+      <div class="card-header"><span class="fa fa-list-alt"></span> Search Parameters <em id="error"
+          class="text-danger ml-3"></em></div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="searchTerm">Search Term:</label>
+            <input type="text" class="form-control" id="searchTerm">
+          </div>
+          <div class="form-group">
+            <label for="numberRecords">Number of Records to Retrive:</label>
+            <input type="number" class="form-control" id="numberRecords" value="5">
+          </div>
+          <div class="form-group">
+            <label for="startYear">Start Year (Optional):</label>
+            <input type="number" class="form-control" id="startYear">
+          </div>
+          <div class="form-group">
+            <label for="endYear">End Year (Optional):</label>
+            <input type="number" class="form-control" id="endYear">
+          </div>
+          <button id="search-form" type="submit" class="btn btn-light"><span class="fa fa-search"></span>
+            Search</button>
+          <button id="clear-results" type="button" class="btn btn-light"><span class="fa fa-trash"></span> Clear
+            Results</button>
+          <button id="clear-form" type="reset" class="btn btn-light"><span class="fa fa-trash"></span> Reset
+            Form</button>
+        </form>
       </div>
+    </div>
 
 
-      <section class="card">
+    <section class="card mb-3">
 
         <div class="card-header"><span class="fa fa-table"></span> Top Articles</div>
         <div id="articles" class="card-body">
@@ -64,6 +67,9 @@
       </section>
     </main>
 
+  <footer class="footer mt-auto py-3 bg-info text-light rounded">
+    <h6 class="text-center">&copy; Copyright 2020</h6>
+  </footer>
 
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
