@@ -7,6 +7,9 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 
   <title>New York Times Search</title>
 </head>
@@ -14,15 +17,15 @@
 <body>
   <div class="container">
     <header class="bg-info py-5 mb-3 text-center rounded">
-      <h1 class="text-light">New York Times Search</h1>
+      <h1 class="text-light"><span class="fa fa-newspaper-o"></span> New York Times Search</h1>
       <p id="error" class="text-danger mt-3"></p>
     </header>
 
     <main>
       <div class="card mb-3">
-        <div class="card-header">Search Parameters</div>
+        <div class="card-header"><span class="fa fa-list-alt"></span> Search Parameters</div>
         <div class="card-body">
-          <form>
+          <form id="search-form">
             <div class="form-group">
               <label for="searchTerm">Search Term:</label>
               <input type="text" class="form-control" id="searchTerm">
@@ -39,8 +42,8 @@
               <label for="endYear">End Year (Optional):</label>
               <input type="number" class="form-control" id="endYear">
             </div>
-            <button type="submit" class="btn btn-light">Search</button>
-            <button type="button" class="btn btn-light">Clear Results</button>
+            <button type="submit" class="btn btn-light"><span class="fa fa-search"></span> Search</button>
+            <button id="clear-results" type="button" class="btn btn-light"><span class="fa fa-trash"></span> Clear Results</button>
           </form>
         </div>
       </div>
@@ -48,21 +51,14 @@
 
       <section class="card">
 
-        <div class="card-header">Top Articles</div>
+        <div class="card-header"><span class="fa fa-table"></span> Top Articles</div>
         <div id="articles" class="card-body">
           <article class="card p-2">
             <h5>1. Sample Article</h5>
             <h6>Author Name</h6>
-            <p class="card-text">Section: Sports</p>
-            <p class="card-text">1972-01-09T05:00:00+0000</p>
+            <p class="card-text m-0">Section: Sports</p>
+            <p class="card-text m-0">1972-01-09T05:00:00+0000</p>
             <a href="#" class="card-link">https://www.nytimes.com/sampleurl</a>
-          </article>
-          <article class="card p-2">
-            <h5>2. Another Sample Article</h5>
-            <h6>Batman</h6>
-            <p class="card-text">Section: Arts</p>
-            <p class="card-text">2018-03-05T08:00:00+0000</p>
-            <a href="#" class="card-link">https://www.nytimes.com/differenturl</a>
           </article>
         </div>
       </section>
