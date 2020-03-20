@@ -14,6 +14,7 @@ function init() {
 
 
     function handleFormSubmit(event) {
+        $("#articles").empty()
         event.preventDefault()
         let searchTermEl = $('#searchTerm').val()
         let numberOfRecords = $('#numberRecords').val()
