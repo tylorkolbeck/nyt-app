@@ -3,8 +3,6 @@
 init()
 
 function init() {
-
-
     // set up eventlisteners
     $('#search-form').on('click', handleFormSubmit)
     $('#clear-results').on('click', handleArticleClear)
@@ -22,10 +20,9 @@ function init() {
         let startYear = $('#startYear').val()
         let endYear = $('#endYear').val()
         doApiQuery(searchTermEl, numberOfRecords, parseInt(startYear), parseInt(endYear)) 
-
     }
 
-    let apiKey = 'ydvNHGQto4tLcOSZ4aWQ21b9AxTpwOpm'
+    let apiKey = 'ydvNHGQto4tLcOSZ4aWQ21b9AxTpwOpm999'
 
     /**
      * @param {string} searchString 
@@ -49,6 +46,14 @@ function init() {
                 buildArticleUI(response.docs.slice(0, articleNum))
             })
             .catch((err) => {
+                $('#error').text(err.statusText)
+
+                setTimeout(clearError, 5000)
+
+                function clearError() {
+                    $('#error').text("")
+                }
+
                 console.log('ERR', err)
             }) // #user-error
     }
@@ -72,13 +77,13 @@ function init() {
             let title = cardData.headline.main
             let byAuthor = cardData.byline.original
             let section = cardData.section_name
-            let pubDate = cardData.pub_date
+            let pubDate = moment(cardData.pub_date).format("MMM Do YYYY")
             let articleLink = cardData.web_url 
 
             articleWrapperEl.append(header5El.text(`${index + 1}. ${title}`))
             articleWrapperEl.append(header6El.text(byAuthor))
-            articleWrapperEl.append(pEl.text(section).addClass('card-text'))
-            articleWrapperEl.append(pEl.text(pubDate).addClass('card-text'))
+            articleWrapperEl.append(pEl.text(section).addClass('card-text m-0'))
+            articleWrapperEl.append(pEl.text(pubDate).addClass('card-text m-0'))
             articleWrapperEl.append(linkEl.attr("href", articleLink).addClass('card-link').text(articleLink))
 
             return articleWrapperEl
