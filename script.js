@@ -15,7 +15,6 @@ function init() {
     function doApiQuery(searchString, articleNum) {
         let queryString = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchString}&api-key=${apiKey}`
 
-
         $.ajax({
             url: queryString,
             method: 'GET'
@@ -28,7 +27,15 @@ function init() {
             }) // #user-error
     }
 
-    function buildArticleUI() {
+    function buildArticleUI(data) {
+        let cardEl = $('<article>')
+        // loop through {data} and build a card for each article
+            // $(cardEl).addClass('class1 class2 ......')
+            // TODO: Need classes that are getting added to each card
+        
+        // Append cardEl to body
+            // TODO: Need id of body div to append to
+
         
     }
 
