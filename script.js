@@ -48,14 +48,39 @@ function init() {
      * Builds then updates DOM with the built card elements
      */
     function buildArticleUI(data) {
-        let cardEl = $('<article>')
         let cards = data.map(cardData => {
+            let articleWrapperEl = $('<article>')
+
+            // set article classes
+            articleWrapperEl.addClass('card p-2')
+
+            //     <article class="card p-2">
+            //     <h5>1. Sample Article</h5>
+            //     <h6>Author Name</h6>
+            //     <p class="card-text">Section: Sports</p>
+            //     <p class="card-text">1972-01-09T05:00:00+0000</p>
+            //     <a href="#" class="card-link">https://www.nytimes.com/sampleurl</a>
+            //   </article>
+
+            // let articleEl = $('<article>')
+            let header5El = $('<h5>')
+            let header6El = $('<h6>')
+            let pEl = $('<p>')
+            let linkEl = $('<a>')
+     
             let title = cardData.headline.main
             let byAuthor = cardData.byline.original
             let section = cardData.section_name
             let pubDate = cardData.pub_date
-            let articleLink = cardData.web_url
-            
+            let articleLink = cardData.web_url 
+
+            articleWrapperEl.append(header5El.text(title))
+            articleWrapperEl.append(header6El.text(byAuthor))
+            articleWrapperEl.append(pEl.text(section).addClass('card-text'))
+            articleWrapperEl.append(pEl.text(pubDate).addClass('card-text'))
+            articleWrapperEl.append(linkEl.attr("href", articleLink))
+
+            return articleWrapperEl
         })
         console.log('[BUILDARTICLEIO][CARD DATA]', cards)
         // loop through {data} and build a card for each article
