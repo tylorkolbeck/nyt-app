@@ -14,13 +14,15 @@ function init() {
 
 
     function handleFormSubmit(event) {
+        $("#articles").empty()
         event.preventDefault()
         let searchTermEl = $('#searchTerm').val()
         let numberOfRecords = $('#numberRecords').val()
-        let startYear = $('#startYear').val()
-        let endYear = $('#endYear').val()
+        let startYear = parseInt($('#startYear').val())
+        let endYear = parseInt($('#endYear').val())
+
         if (searchTermEl) {
-            doApiQuery(searchTermEl, numberOfRecords, parseInt(startYear), parseInt(endYear)) 
+            doApiQuery(searchTermEl, numberOfRecords, startYear, endYear) 
         } else {
             $('#error').text('Please enter a search term.')
 
