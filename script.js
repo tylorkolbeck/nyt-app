@@ -22,7 +22,7 @@ function init() {
         doApiQuery(searchTermEl, numberOfRecords, parseInt(startYear), parseInt(endYear)) 
     }
 
-    let apiKey = 'ydvNHGQto4tLcOSZ4aWQ21b9AxTpwOpm999'
+    let apiKey = 'ydvNHGQto4tLcOSZ4aWQ21b9AxTpwOpm'
 
     /**
      * @param {string} searchString 
