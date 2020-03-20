@@ -5,6 +5,13 @@ function init() {
 
 
 
+    /**
+     * 
+     * @param {string} searchString 
+     * @param {num} articleNum 
+     * Fetches data from NYT API 
+     * 
+     */ 
     function doApiQuery(searchString, articleNum) {
         let queryString = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchString}&api-key=${apiKey}`
 
