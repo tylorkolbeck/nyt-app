@@ -15,12 +15,23 @@ function init() {
 
     function handleFormSubmit(event) {
         event.preventDefault()
-        let searchTermEl = $('#searchTermEl').val()
+        let searchTermEl = $('#searchTerm').val()
         let numberOfRecords = $('#numberRecords').val()
         let startYear = $('#startYear').val()
         let endYear = $('#endYear').val()
-        doApiQuery(searchTermEl, numberOfRecords, parseInt(startYear), parseInt(endYear)) 
+        if (searchTermEl) {
+            doApiQuery(searchTermEl, numberOfRecords, parseInt(startYear), parseInt(endYear)) 
+        } else {
+            $('#error').text('Please enter a search term.')
+
+                setTimeout(clearError, 5000)
+
+                function clearError() {
+                    $('#error').text("")
+                }
+        }
     }
+
 
     let apiKey = 'ydvNHGQto4tLcOSZ4aWQ21b9AxTpwOpm'
 
